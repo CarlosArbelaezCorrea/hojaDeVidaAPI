@@ -1,5 +1,7 @@
 const express = require('express')
 
+const cors = require('cors')
+
 const { hojaDeVida, Vacante, User, dbConnection} = require('./models')
 
 const app = express()
@@ -8,6 +10,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
+app.use(cors())
 
 app.get('/', (req, res) => {
     res.send({message:"Server on"})
